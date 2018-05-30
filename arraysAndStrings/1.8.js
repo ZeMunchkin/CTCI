@@ -17,9 +17,9 @@ const isSubstring = (s1, s2) => (
 
 // implentation
 
-const isRotation = (s1, s2) => {
-  return isSubstring(s1 + s1, s2);
-};
+const isRotation = (s1, s2) => (
+  isSubstring(s1 + s1, s2)
+);
 
 
 /*
