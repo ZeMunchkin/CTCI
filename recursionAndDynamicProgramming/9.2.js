@@ -11,18 +11,23 @@
 */
 
 const findNumPaths = (x, y) => {
-  if ()
-};
+  let counter = 0;
 
-class RobotBoard {
-  constructor(x, y) {
-    for (let i = 0; i < x; i += 1) {
-      this[i] = new Array(y).fill(false);
+  const findPaths = (xIndex, yIndex) => {
+    if (xIndex === x - 1 && yIndex === y - 1) {
+      counter += 1;
+      return;
     }
-    this[0][0] = true;
-  }
 
-  togglePiece(x, y) {
-    this[x][y] = !this[x][y];
-  }
+    if (xIndex > x || yIndex > y) {
+      return;
+    }
+
+    findPaths(xIndex + 1, yIndex);
+    findPaths(xIndex, yIndex + 1);
+  };
+
+  findPaths(0, 0);
+
+  return counter;
 };
